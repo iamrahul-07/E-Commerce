@@ -10,7 +10,7 @@ import { FiSearch } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { BACKEND_URL } from "../utils/utils";
+import { BACKEND_URL } from "../utils/utils.js";
 
 const Courses = () => {
   const navigate = useNavigate();
