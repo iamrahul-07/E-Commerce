@@ -88,7 +88,7 @@ function AdminLogin() {
           </h2>
 
           <p className="text-center text-gray-400 text-sm sm:text-base mb-6">
-            Login to
+            Login to Access Admin Dashboard
           </p>
 
           <form onSubmit={handleSubmit}>

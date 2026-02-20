@@ -62,41 +62,41 @@ const Home = () => {
 
   // Original Slider Settings (unchanged)
   var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  responsive: [
+    {
+      breakpoint: 1280, // small laptops
+      settings: {
+        slidesToShow: 3,
       },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
+    },
+    {
+      breakpoint: 1024, // tablets
+      settings: {
+        slidesToShow: 2,
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+    },
+    {
+      breakpoint: 768, // large phones
+      settings: {
+        slidesToShow: 1,
       },
-    ],
-  };
+    },
+    {
+      breakpoint: 480, // small phones
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
+
 
   return (
     <div className="bg-linear-to-r from-black to-blue-950">
@@ -176,7 +176,7 @@ const Home = () => {
           <Slider {...settings}>
             {courses.map((course) => {
               return (
-                <div key={course._id} className="p-4">
+                <div key={course._id} className="px-2 sm:px-4">
                   <div className="relative px-2 transition-transform duration-300 transform hover:scale-105">
                     <div className="bg-gray-900 rounded-lg overflow-hidden">
                       <img
@@ -185,7 +185,7 @@ const Home = () => {
                         className="h-32 sm:h-40 md:h-48 w-full object-contain"
                       />
 
-                      <div className="p-6 text-center">
+                      <div className="p-4 sm:p-6 text-center">
                         <h2 className="text-base sm:text-lg md:text-xl font-bold text-white">
                           {course.title}
                         </h2>

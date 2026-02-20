@@ -119,10 +119,11 @@ const Courses = () => {
       </aside>
 
       {/* Main */}
-      <main className="flex-1 bg-white p-4 sm:p-6 md:p-10 md:ml-0">
+      <main className= {`flex-1 bg-white p-4 sm:p-6 md:p-10 transition-all duration-300 
+  ${isSidebarOpen ? "ml-64" : "ml-0"} md:ml-64`} >
 
         {/* Header */}
-        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-10 gap-4">
+        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-10 gap-4 mt-16 md:mt-0">
           <h1 className="text-lg sm:text-xl font-bold">Courses</h1>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
