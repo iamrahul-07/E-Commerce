@@ -64,41 +64,34 @@ const Home = () => {
 
   // Original Slider Settings (unchanged)
   var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    adaptiveHeight: true,
-    responsive: [
-      {
-        breakpoint: 1280, // small laptops
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 1024, // tablets
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768, // large phones
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 480, // small phones
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  arrows: false,
+  responsive: [
+    {
+      breakpoint: 1280,
+      settings: { slidesToShow: 3 }
+    },
+    {
+      breakpoint: 1024,
+      settings: { slidesToShow: 2 }
+    },
+    {
+      breakpoint: 768,
+      settings: { slidesToShow: 1 }
+    },
+    {
+      breakpoint: 480,
+      settings:{slidesToShow: 1}
+    }
+  ]
+};
+
 
   return (
     <div className="bg-linear-to-r from-black to-blue-950">
