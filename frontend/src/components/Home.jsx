@@ -67,28 +67,20 @@ const Home = () => {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
+  slidesToShow: 4,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
   arrows: false,
   responsive: [
     {
-      breakpoint: 1280,
-      settings: { slidesToShow: 3 }
-    },
-    {
-      breakpoint: 1024,
+      breakpoint: 1100,
       settings: { slidesToShow: 2 }
     },
     {
-      breakpoint: 768,
+      breakpoint: 940,
       settings: { slidesToShow: 1 }
     },
-    {
-      breakpoint: 480,
-      settings:{slidesToShow: 1}
-    }
   ]
 };
 
