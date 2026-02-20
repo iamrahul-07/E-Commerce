@@ -13,6 +13,11 @@ import { BACKEND_URL } from "../utils/utils.js";
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Check login
   useEffect(() => {
@@ -28,12 +33,9 @@ const Home = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(
-          `${BACKEND_URL}/course/courses`,
-          {
-            withCredentials: true,
-          }
-        );
+        const response = await axios.get(`${BACKEND_URL}/course/courses`, {
+          withCredentials: true,
+        });
         setCourses(response.data.courses);
       } catch (error) {
         console.log(error.message);
@@ -50,7 +52,7 @@ const Home = () => {
         {},
         {
           withCredentials: true,
-        }
+        },
       );
       toast.success(response.data.message);
       localStorage.removeItem("user");
@@ -62,47 +64,45 @@ const Home = () => {
 
   // Original Slider Settings (unchanged)
   var settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  adaptiveHeight: true,
-  responsive: [
-    {
-      breakpoint: 1280, // small laptops
-      settings: {
-        slidesToShow: 3,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 1280, // small laptops
+        settings: {
+          slidesToShow: 3,
+        },
       },
-    },
-    {
-      breakpoint: 1024, // tablets
-      settings: {
-        slidesToShow: 2,
+      {
+        breakpoint: 1024, // tablets
+        settings: {
+          slidesToShow: 2,
+        },
       },
-    },
-    {
-      breakpoint: 768, // large phones
-      settings: {
-        slidesToShow: 1,
+      {
+        breakpoint: 768, // large phones
+        settings: {
+          slidesToShow: 1,
+        },
       },
-    },
-    {
-      breakpoint: 480, // small phones
-      settings: {
-        slidesToShow: 1,
+      {
+        breakpoint: 480, // small phones
+        settings: {
+          slidesToShow: 1,
+        },
       },
-    },
-  ],
-};
-
+    ],
+  };
 
   return (
     <div className="bg-linear-to-r from-black to-blue-950">
       <div className="min-h-screen text-white container mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-
         {/* Header */}
         <header className="flex flex-col md:flex-row items-center justify-between p-4 md:p-6 gap-4 md:gap-0">
           <div className="flex items-center space-x-2">
@@ -174,36 +174,38 @@ const Home = () => {
 
         {/* Slider Section */}
         <section>
-          <Slider {...settings}>
-            {courses.map((course) => {
-              return (
-                <div key={course._id} className="px-2 sm:px-4">
-                  <div className="relative px-2 transition-transform duration-300 transform hover:scale-105">
-                    <div className="bg-gray-900 rounded-lg overflow-hidden">
-                      <img
-                        src={course.image?.url}
-                        alt=""
-                        className="h-32 sm:h-40 md:h-48 w-full object-contain"
-                      />
+          {mounted && (
+            <Slider {...settings}>
+              {courses.map((course) => {
+                return (
+                  <div key={course._id} className="px-2 sm:px-4">
+                    <div className="relative px-2 transition-transform duration-300 transform hover:scale-105">
+                      <div className="bg-gray-900 rounded-lg overflow-hidden">
+                        <img
+                          src={course.image?.url}
+                          alt=""
+                          className="h-32 sm:h-40 md:h-48 w-full object-contain"
+                        />
 
-                      <div className="p-4 sm:p-6 text-center">
-                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-white">
-                          {course.title}
-                        </h2>
+                        <div className="p-4 sm:p-6 text-center">
+                          <h2 className="text-base sm:text-lg md:text-xl font-bold text-white">
+                            {course.title}
+                          </h2>
 
-                        <Link
-                          to={`/buy/${course._id}`}
-                          className="mt-4 inline-block bg-orange-500 text-white py-2 px-4 rounded-full hover:bg-blue-500 duration-300 cursor-pointer"
-                        >
-                          Enroll Now
-                        </Link>
+                          <Link
+                            to={`/buy/${course._id}`}
+                            className="mt-4 inline-block bg-orange-500 text-white py-2 px-4 rounded-full hover:bg-blue-500 duration-300 cursor-pointer"
+                          >
+                            Enroll Now
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </Slider>
+                );
+              })}
+            </Slider>
+          )}
         </section>
 
         <hr />
@@ -211,7 +213,6 @@ const Home = () => {
         {/* Footer */}
         <footer className="my-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
-
             {/* Logo Section */}
             <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center space-x-2">
@@ -275,10 +276,8 @@ const Home = () => {
                 </li>
               </ul>
             </div>
-
           </div>
         </footer>
-
       </div>
     </div>
   );
