@@ -69,6 +69,7 @@ const Home = () => {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
+  adaptiveHeight: true,
   responsive: [
     {
       breakpoint: 1280, // small laptops
