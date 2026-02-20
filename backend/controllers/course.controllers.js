@@ -40,7 +40,7 @@ export const createCourse = async (req, res) => {
       price,
       image: {
         public_id: cloud_response?.public_id,
-        url: cloud_response?.url,
+        url: cloud_response?.secure_url,
       },
       creatorId: adminId,
     };
@@ -74,7 +74,7 @@ export const updateCourse = async (req, res) => {
 
       course.image = {
         public_id: cloud_response.public_id,
-        url: cloud_response.url,
+        url: cloud_response.secure_url,
       };
     }
 
