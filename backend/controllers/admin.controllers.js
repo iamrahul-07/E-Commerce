@@ -12,7 +12,13 @@ dotenv.config();
 
 
 export const signup=async (req, res)=>{
-    const {firstName, lastName, email, password}=req.body;
+    const {firstName, lastName, email, password, adminSecret}=req.body;
+    if (adminSecret !== process.env.ADMIN_SECRET) {
+    return res.status(403).json({
+        success: false,
+        message: "Unauthorized"
+    });
+}
     const adminSchema=z.object({
         firstName: z.string().min(3,{message:"FirstName should be minimum 3 char long"}),
         lastName: z.string().min(3,{message:"lastName should be minimum 3 char long"}),

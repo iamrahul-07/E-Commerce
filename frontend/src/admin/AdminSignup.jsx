@@ -10,6 +10,7 @@ function AdminSignup() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [secretKey, setSecretKey]=useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ function AdminSignup() {
           lastName,
           email,
           password,
+          secretKey: secretKey,
         },
         {
           withCredentials: true,
@@ -169,6 +171,24 @@ function AdminSignup() {
                 </span>
               </div>
             </div>
+            <div className="mb-4">
+  <label
+    htmlFor="secretKey"
+    className="text-gray-400 text-sm sm:text-base mb-2 block"
+  >
+    Admin Secret Key
+  </label>
+
+  <input
+    type="password"
+    id="secretKey"
+    value={secretKey}
+    onChange={(e) => setSecretKey(e.target.value)}
+    className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+    placeholder="Enter admin secret key"
+    required
+  />
+</div>
 
             {errorMessage && (
               <div className="mb-4 text-red-500 text-center text-sm">
