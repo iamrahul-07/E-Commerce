@@ -12,8 +12,8 @@ dotenv.config();
 
 
 export const signup=async (req, res)=>{
-    const {firstName, lastName, email, password, adminSecret}=req.body;
-    if (adminSecret !== process.env.ADMIN_SECRET) {
+    const {firstName, lastName, email, password, secretKey}=req.body;
+    if (secretKey !== process.env.ADMIN_SECRET) {
     return res.status(403).json({
         success: false,
         message: "Unauthorized"
@@ -24,6 +24,7 @@ export const signup=async (req, res)=>{
         lastName: z.string().min(3,{message:"lastName should be minimum 3 char long"}),
         email: z.string().email({message: "Enter valid Email"}),
         password: z.string().min(7,{message:"Password length should be greater than 7"}),
+        secretKey:z.string(),
     });
      const validateData=adminSchema.safeParse(req.body);
      if(!validateData.success){
