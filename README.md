@@ -53,8 +53,6 @@ A full-stack course selling platform built as a learning project to explore mode
 
 ## 📸 Screenshots
 
-> Add the screenshots below.
-
 - Landing Page <img width="1917" height="902" alt="Screenshot 2026-08-03 153844" src="https://github.com/user-attachments/assets/f6dd8fe6-e7af-4148-bc3b-ffc87bf360f1" />
 - Login Page <img width="1915" height="890" alt="Screenshot 2026-08-03 153910" src="https://github.com/user-attachments/assets/3bed8e93-f7a9-454a-992d-b78b8acdf4ff" />
 - Courses Page <img width="1917" height="901" alt="Screenshot 2026-08-03 153956" src="https://github.com/user-attachments/assets/621ea3b7-ddd8-43e9-9f89-553ca102db28" />
